@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Solicitud de Garantía</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+</head>
+
+<link rel="icon" href="Walmart.Spark 1.png" type="image/png">
+
+<body>
+
+</div>
+
+<form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="9bc03189-14e8-47df-bedd-59bf67671f8d">
+
+
+        <h2>Formulario.<span class="resaltado">Garantías </span></h2>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <div class="input-group">
+            <div class="float-label-group">
+                <input type="text" name="name" id="name" placeholder=" " required>
+                <label for="name">Nombre*</label>
+            </div>
+
+            <div class="float-label-group">
+                <input type="text" name="lastname" id="lastname" placeholder=" " required>
+                <label for="lastname">Apellidos*</label>
+            </div>
+
+            <div class="float-label-group">
+                <input type="text" name="id" id="id" placeholder=" " required>
+                <label for="id">Identificación/Pasaporte*</label>
+            </div>
+
+            <div class="float-label-group" id="invoice-container">
+                <input type="text" name="invoice" id="invoice" placeholder=" " maxlength="24" onfocus="addPrefix(this)" oninput="validateInvoice(this)" onblur="removePrefix(this)">
+                <label for="invoice">Número de tu factura*</label>
+                <div class="tooltip-icon">?</div>
+            </div>    
+
+            <div class="phone-container">
+                <input type="tel" id="phone" name="phone" placeholder=" ☎ Teléfono*" required>
+                <input type="tel" id="phone2" name="phone2" placeholder=" ☎ Alternativo">
+            </div>
+
+            <div class="float-label-group">
+                <input type="email" name="email" id="email" placeholder=" "required>
+                <label for="email">Correo electrónico*</label>
+            </div>
+
+            <div class="float-label-group">
+                <input type="email" name="email2" id="email2" placeholder=" ">
+                <label for="email2">Correo electrónico (Opcional)</label>
+            </div>
+
+<div class="select-label-group" id="damagetype-container">
+    <select name="damagetype" id="damagetype" required style="width: 100%;">
+        <option value="" disabled selected>Selecciona el tipo de daño...</option>
+        
+        <optgroup label="🔄 Daños funcionales">
+            <option value="funcional1">No enciende / No funciona</option>
+            <option value="funcional2">Sobrecalentamiento</option>
+            <option value="funcional3">Ruidos extraños / Vibraciones</option>
+            <option value="funcional4">Falla en botones, controles o sensores</option>
+            <option value="funcional5">Problemas de conexión (WiFi, Bluetooth, cableado)</option>
+            <option value="funcional6">Motor, batería o sistema interno defectuoso</option>
+            <option value="funcional_otros">Otros</option>
+        </optgroup>
+        
+        <optgroup label="⚙️ Daños mecánicos o estructurales">
+            <option value="mecanico1">Piezas sueltas, rotas o desprendidas</option>
+            <option value="mecanico2">Desgaste irregular, deformaciones o hundimiento</option>
+            <option value="mecanico3">Fisuras, grietas o cortes</option>
+            <option value="mecanico4">Daño por sobrecarga / Exceso de peso</option>
+            <option value="mecanico5">Oxidación o corrosión</option>
+            <option value="mecanico6">Daños por temperaturas extremas</option>
+            <option value="mecanico_otros">Otros</option>
+        </optgroup>
+        
+        <optgroup label="💧 Daños relacionados con fluidos y presión">
+            <option value="fluido1">Fugas (agua, gas, aire, aceite)</option>
+            <option value="fluido2">Pérdida de presión / Mal sellado</option>
+            <option value="fluido3">Desprendimiento de capas o estructuras internas</option>
+            <option value="fluido4">Obstrucción en drenajes, válvulas o conductos</option>
+            <option value="fluido_otros">Otros</option>
+        </optgroup>
+        
+        <optgroup label="🎨 Daños estéticos y de acabado">
+            <option value="estetico1">Desgaste o decoloración</option>
+            <option value="estetico2">Rayones, golpes o abolladuras visibles</option>
+            <option value="estetico3">Tapizado o recubrimiento dañado</option>
+            <option value="estetico4">Desprendimiento de barniz, pintura o acabado</option>
+            <option value="estetico_otros">Otros</option>
+        </optgroup>
+        
+        <optgroup label="🔋 Daños eléctricos o electrónicos">
+            <option value="electrico1">Cortocircuitos internos / Falla eléctrica</option>
+            <option value="electrico2">Problemas con la batería o la carga</option>
+            <option value="electrico3">Luces indicadoras defectuosas</option>
+            <option value="electrico4">Mal funcionamiento de sensores inteligentes</option>
+            <option value="electrico_otros">Otros</option>
+        </optgroup>
+    </select>
+    <label for="damagetype"></label>
+</div>
+              
+
+        <div class="float-label-group">
+                <textarea name="message" id="message" cols="30" rows="5" placeholder=" "></textarea>
+                <label for="message">Detalles del daño</label>
+        </div>
+
+        <div class="form-txt">
+                <label>
+                    <input type="checkbox" id="terms-checkbox" required>
+                    Acepto y estoy de acuerdo con la 
+                    <a href="https://www.walmartcentroamerica.com/content/dam/walmart-centro-america/documents/privacidad/aviso-de-privacidad-para-garantias.pdf" 
+                       target="_blank" rel="noopener noreferrer">
+                       Política de Privacidad
+                    </a> 
+                    y con los 
+                    <a href="https://www.walmartcentroamerica.com/terminos-y-condiciones" 
+                       target="_blank" rel="noopener noreferrer">
+                       Términos y condiciones
+                    </a>.
+                </label>
+        </div>
+
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            <input class="btn" type="submit" value="Enviar 🚀">
+            
+        </div>
+    </form>
+
+    <div class="image-container">
+        <img src="Biformato.png" alt="Animación" class="animated-image">
+    </div>
+    
+    <div class="image-container second-image">
+        <img src="Flor.Supermercados 1.png" alt="Animación" class="animated-image">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script>
+        const phoneInput = document.querySelector("#phone");
+        const phoneInput2 = document.querySelector("#phone2");
+        
+        const iti = window.intlTelInput(phoneInput, {
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            separateDialCode: true,
+            initialCountry: "gt",
+            preferredCountries: ["gt", "sv", "hn", "ni", "cr", "pa", "bz"],
+        });
+        
+        const iti2 = window.intlTelInput(phoneInput2, {
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+            separateDialCode: true,
+            initialCountry: "gt",
+            preferredCountries: ["gt", "sv", "hn", "ni", "cr", "pa", "bz"],
+        });
+        
+
+        function validateInvoice(input) {
+            let prefix = "TC#";
+            let userInput = input.value.replace(prefix, "");
+
+
+            userInput = userInput.replace(/\D/g, '');
+            if (userInput.length > 21) {
+                userInput = userInput.slice(0, 21);
+            }
+
+            input.value = prefix + userInput;
+            if (userInput.length !== 21) {
+                input.setCustomValidity("Debe ingresar exactamente 21 dígitos después de TC#");
+            } else {
+                input.setCustomValidity("");
+            }
+        }
+
+        function removePrefix(input) {
+            if (input.value === "TC#") {
+                input.value = "";
+            }
+        }
+
+        $(document).ready(function () {
+            $('#damagetype').select2({
+            placeholder: "Seleccione el daño*",
+            allowClear: true,
+            width: 'resolve'
+            });
+         });
+    </script>
+</body>
+</html>

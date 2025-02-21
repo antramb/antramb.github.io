@@ -1,0 +1,666 @@
+@import url('https://fonts.googleapis.com/css2?family=Bogle&display=swap');
+
+body {
+    margin: 0;
+    padding: 0 20px;
+    font-family: 'Bogle', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    background: url(background.jpg) no-repeat center center fixed;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+}
+
+form {
+    padding: 40px 25px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+
+form:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.4);
+}
+
+form::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 5px;
+    background: 
+        linear-gradient(90deg, 
+            transparent, 
+            transparent, 
+            #ffb71b, 
+            transparent, 
+            transparent
+        ) 0 0 / 300% 5px no-repeat,
+        linear-gradient(180deg, 
+            transparent, 
+            transparent, 
+            #ffb71b, 
+            transparent, 
+            transparent
+        ) 100% 0 / 5px 300% no-repeat,
+        linear-gradient(270deg, 
+            transparent, 
+            transparent, 
+            #ffb71b, 
+            transparent, 
+            transparent
+        ) 0 100% / 300% 5px no-repeat,
+        linear-gradient(0deg, 
+            transparent, 
+            transparent, 
+            #ffb71b, 
+            transparent, 
+            transparent
+        ) 0 0 / 5px 300% no-repeat;
+    filter: drop-shadow(0 0 5px rgba(255, 183, 27, 0.5)) opacity(0.8);
+    animation: borderAnimation 6s infinite linear;
+    pointer-events: none;
+    z-index: 2;
+}
+
+@keyframes borderAnimation {
+    0% {
+        background-position: 
+            0% 0%,    /* Top */
+            100% 0%,  /* Right */
+            100% 100%,/* Bottom */
+            0% 100%;  /* Left */
+    }
+    25% {
+        background-position: 
+            100% 0%,   /* Top completed */
+            100% 100%, /* Right in progress */
+            100% 100%, /* Bottom not started */
+            0% 100%;   /* Left not started */
+    }
+    50% {
+        background-position: 
+            100% 0%,   /* Top static */
+            100% 200%, /* Right completed */
+            0% 100%,   /* Bottom in progress */
+            0% 100%;   /* Left not started */
+    }
+    75% {
+        background-position: 
+            100% 0%,   /* Top static */
+            100% 200%, /* Right static */
+            0% 100%,   /* Bottom completed */
+            0% 0%;     /* Left in progress */
+    }
+    100% {
+        background-position: 
+            0% 0%,     /* Top reset for next iteration */
+            100% 0%,   /* Right reset */
+            100% 100%, /* Bottom reset */
+            0% 100%;   /* Left completed */
+    }
+}
+
+.header-images {
+    display: flex;
+    justify-content: left;
+    gap: 25px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto 15px auto;
+}
+
+.header-images img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+    max-width: calc(50% - 25px);
+}
+
+h2 {
+    font-family: 'Bogle', sans-serif;
+    font-size: 42px;
+    color: #C0DFFF;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.resaltado {
+    font-family: 'Bogle', sans-serif;
+    font-weight: 700;
+    font-size: 62px;
+    background: linear-gradient(to bottom, #FFC220, #E5A917);
+    background-clip: text;              /* Propiedad estándar */
+    -webkit-background-clip: text;      /* Para Chrome/Safari */
+    color: transparent;                 /* Propiedad estándar */
+    -webkit-text-fill-color: transparent; /* Para Chrome/Safari */
+}
+
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) blur(0);
+    }
+}
+
+
+.progress-container {
+    width: 94%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: relative;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-top: 2px;
+}
+
+.progress-bar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        #ffb71b 50%,
+        transparent 100%
+    );
+    animation: loading 5s infinite ease-in-out;
+}
+
+@keyframes loading {
+    0% {
+        left: -50%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.float-label-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    display: flex;
+}
+
+.float-label-group input,
+.float-label-group textarea {
+    width: calc(100% - 10px); 
+    margin: 5px;
+    color: #E0E0E0;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    padding: 14px 15px;
+    background: rgba(255, 255, 255, 0.15); 
+    outline: none;
+    backdrop-filter: blur(20px);
+    text-align: left;
+    font-family: 'Bogle', sans-serif;
+}
+
+.phone-container {
+    display: flex;
+    width: calc(100% - 10px);
+    gap: 15px;
+    margin: 12px 0;
+    margin-left: 5px;
+}
+
+.phone-container input {
+    width: 100%; 
+    margin: none; 
+    color: #E0E0E0;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.15); 
+    outline: none;
+    backdrop-filter: blur(20px);
+    text-align: left;
+    font-family: 'Bogle', sans-serif;
+}
+
+.phone-container input label {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    color: #C0DFFF; 
+    pointer-events: none;
+    transition: 0.2s ease all;
+    font-size: 20px;
+    font-weight: 0;
+    font-family: 'Bogle', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
+}
+
+.phone-container ::placeholder {
+    font-size: 20px;
+    top: -5px;
+    left: 7px;
+    color: #E0E0E0;
+    font-weight: 0;
+    font-family: 'Bogle', sans-serif;
+}
+
+.float-label-group label {
+    position: absolute;
+    left: 15px;
+    top: 20px;
+    color: #C0DFFF; 
+    pointer-events: none;
+    transition: 0.6s ease all;
+    font-size: 20px;
+    font-weight: 0;
+    font-family: 'Bogle', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
+}
+
+.float-label-group input:focus ~ label,
+.float-label-group input:not(:placeholder-shown) ~ label,
+.float-label-group textarea:focus ~ label,
+.float-label-group textarea:not(:placeholder-shown) ~ label {
+    font-size: 20px;
+    top: -18px;
+    left: 7px;
+    color: #E0E0E0;
+    font-weight: 0;
+    font-family: 'Bogle', sans-serif;
+}
+
+.float-label-group input:focus,
+.float-label-group textarea:focus {
+    border-color: #C0DFFF;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.btn {
+    font-size: 25px;
+    font-weight: 700;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #ffb71b, #ffd700); 
+    backdrop-filter: blur(10px);
+    color: #333333;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    padding: 20px 30px;
+    width: 100%;
+    flex: 1;
+    transition: all 0.3s ease, transform 0.2s ease, opacity 0.3s ease; /* Transición suave */
+    font-family: 'Bogle', sans-serif;
+    opacity: 0.7;
+}
+
+.btn:hover {
+    transform: translateY(+5px);
+    opacity: 1; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
+}
+
+
+.form-txt {
+    margin-bottom: 30px;
+    margin-left: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Bogle', sans-serif;
+    color: #C0DFFF; 
+}
+
+.form-txt a {
+    color: #ffb71b;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0.9;
+}
+
+.form-txt input[type="checkbox"] {
+    transform: scale(1.5);
+    margin-right: 10px;
+    accent-color: #ffb71b;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 992px) {
+    form {
+        padding: 40px 25px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    form {
+        width: 90%;
+        padding: 30px 15px;
+        margin: 20px auto;
+    }
+    
+    .header-images {
+        gap: 15px;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .header-images img {
+        width: 80px;
+    }
+
+    .phone-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .phone-container input {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    .float-label-group input,
+    .float-label-group textarea {
+        font-size: 20px;
+        padding: 15px 12px;
+    }
+
+    .btn {
+        padding: 15px 25px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-images img {
+        width: 70px;
+    }
+
+    .phone-container input {
+        padding: 10px 12px;
+    }
+
+    h2 {
+        font-size: 25px;
+        font-family: 'Bogle', sans-serif;
+    }
+
+    .resaltado {
+        font-family: 'Bogle', sans-serif;
+        font-weight: 700;
+        font-size: 35px;
+    }
+}
+
+@keyframes beat {
+    0%, 50%, 100% { transform: scale(1, 1); }
+    30%, 80% { transform: scale(0.92, 0.95); }
+  }
+
+
+.animated-image.beat {
+    animation: 4s ease-in-out infinite beat;
+}
+  
+  .image-container {
+      position: absolute;
+      left: 3%;
+      top: 55%;
+      transform: translateY(-50%);
+  }
+
+    .animated-image {
+      width: 330px; 
+      height: auto;
+      animation: 7s ease 0s infinite beat;
+      opacity: 0.9; 
+
+  }
+  
+
+  @media screen and (max-width: 1400px) {
+    .image-container {
+        display: none; 
+    }
+
+}
+
+
+.second-image {
+    top: 900px; 
+}
+
+
+#invoice::-webkit-inner-spin-button,
+#invoice::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#invoice {
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;  /* Para Chrome/Safari */
+    appearance: textfield;          /* Propiedad estándar */
+    width: 100%;                   /* Base width */
+    max-width: calc(100% - 40px);  /* Límite máximo más flexible */
+    box-sizing: border-box;        /* Asegura que padding/border se incluyan en el width */
+}
+
+
+#invoice-container {
+    display: flex;
+    align-items: center;
+}
+
+
+.tooltip-icon {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #ffb71b, #ffd700);
+    border-radius: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px;
+    margin-right: 8px;
+    cursor: help;
+    position: relative;
+    color: #333333;
+    font-size: 20px;
+    font-weight: 600;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+    opacity: 0.7;
+    backdrop-filter: blur(10px);
+}
+
+
+.tooltip-icon:hover {
+    transform: translateY(+5px);
+    opacity: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tooltip-icon {
+    position: relative; /* Mantiene la referencia del pseudo-elemento */
+}
+
+.tooltip-icon:hover::before {
+    content: '';
+    position: fixed;
+    width: 500px;
+    height: 400px;
+    background: url('Invoice\ Sample.png') no-repeat;
+    background-size: contain;
+    top: -365px;
+    left: 50%;
+    transform: translateX(-65%);
+    z-index: 2147483647 !important; /* Máximo valor posible */
+    pointer-events: none;
+}
+
+/* Contenedor principal del select con floating label */
+.select-container {
+    margin-bottom: 12px !important;
+    margin-top: 12px !important;
+}
+
+/* Ajustes del contenedor de Select2 para alinearlo con otros inputs */
+.select2-container {
+    width: calc(100% - 10px) !important;
+    margin: 5px !important;
+}
+
+/* Estilos del campo select principal */
+.select2-container--default .select2-selection--single {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    border: none !important;
+    border-radius: 5px !important;
+    height: auto !important;
+    padding: 15px 15px !important;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !important;
+    margin-bottom: 10px !important;
+    margin-top: 12px !important;
+}
+
+/* Estilos del texto dentro del select */
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #C0DFFF !important; /* Color del texto igual a otros inputs */
+    padding: 0 !important;
+    font-size: 20px !important;
+    font-family: 'Bogle', sans-serif !important;
+    line-height: normal !important;
+    margin-left: -5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3)
+ 
+}
+
+/* Ocultar el placeholder por defecto para usar el floating label */
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #C0DFFF !important; 
+    font-size: 20px !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3)
+}
+
+/* Estilo de la flecha del select */
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100% !important;
+    right: 25px !important;
+    top: -2px !important;
+    color: #ffb71b
+}
+
+/* Color de la flecha del select */
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #E0E0E0 transparent transparent transparent !important;
+}
+
+/* Estilos del dropdown cuando se abre */
+.select2-dropdown {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(20px) !important;
+    border: none !important;
+    border-radius: 5px !important;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !important;
+    margin-left: -5px;
+    gap: 1px;
+}
+
+/* Estilos de las opciones en el dropdown */
+.select2-container--default .select2-results__option {
+    padding: 10px 15px !important;
+    color:  #C0DFFF !important;
+    font-family: 'Bogle', sans-serif !important;
+    font-size: 18px !important;
+}
+
+/* Estilos de los grupos de opciones */
+.select2-container--default .select2-results__group {
+    padding: 10px 15px !important;
+    color: #ffb71b !important;
+    font-family: 'Bogle', sans-serif !important;
+    font-size: 20px !important;
+}
+
+
+/* Ajustes responsive para pantallas pequeñas */
+@media screen and (max-width: 740px) {
+    .select2-container--default .select2-selection--single {
+        padding: 15px !important;
+    }
+    
+    .select2-container--default .select2-selection--single .select2-selection__rendered,
+    .select2-container--default .select2-results__option,
+    .select2-container--default .select2-results__group {
+        font-size: 18px !important;
+    }
+
+    /* Estilos de las opciones en el dropdown */
+.select2-container--default .select2-results__option {
+    padding: 10px 15px !important;
+    color:  #C0DFFF !important;
+    font-family: 'Bogle', sans-serif !important;
+    font-size: 18px !important;
+}
+}
+
+/* Ajustes responsive para pantallas pequeñas */
+@media screen and (max-width: 468px) {
+    .select2-container--default .select2-selection--single {
+        padding: 15px !important;
+    }
+    
+    .select2-container--default .select2-selection--single .select2-selection__rendered,
+    .select2-container--default .select2-results__option,
+    .select2-container--default .select2-results__group {
+        font-size: 15px !important;
+    }
+
+       /* Estilos de las opciones en el dropdown */
+.select2-container--default .select2-results__option {
+    padding: 10px 15px !important;
+    color:  #C0DFFF !important;
+    font-family: 'Bogle', sans-serif !important;
+    font-size: 15px !important;
+}
+}
+
